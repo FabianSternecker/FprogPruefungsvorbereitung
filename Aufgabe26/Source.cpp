@@ -9,15 +9,18 @@ int main() {
 	int size;
 	int median;
 	getline(std::cin, values_string);
-
-	values_int.push_back(stoi(values_string.substr(0, values_string.find(" "))));
-
-	for (auto in : values_string) {	
-		values_int.push_back(in - '0');
+	string substring;
+	int pos=0;
+	int old_pos=0;
+	while (true) {
+		pos = values_string.find(" ");
+		if (pos != string::npos) {
+			substring = values_string.substr(old_pos, pos);
+			values_int.push_back(stoi(substring));
+		}
+		old_pos = pos;
 	}
-	values_string.
-	size = values_int.size();
-	median = values_int.at(size / 2);
+	median = values_int.at(values_int.size() / 2);
 
 	cout << "Median: " << median << endl;
 }

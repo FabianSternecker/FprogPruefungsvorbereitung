@@ -11,6 +11,7 @@ void anzeigen(const T& obj, const Rest &... rest) {
 }
 
 void f() { cout << endl; };
+
 template<typename T,typename ...Ts> void f(T a,Ts ...args) {
 	std::cout << to_string(a) << endl;
 	f(args...);
